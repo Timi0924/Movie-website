@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="CineRush is a movie discovery website with dynamic OMDb search, filters, and responsive design."
+    />
+    <title>CineRush | Movie Discovery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="navbar container" aria-label="Main navigation">
+        <div class="brand" aria-label="CineRush brand">
+          <span class="brand-mark">C</span>
+          <span>CineRush</span>
+        </div>
+
+        <div class="nav-links">
+          <a href="#discover">Discover</a>
+          <a href="#trending">Trending</a>
+          <a href="#featured">Featured</a>
+        </div>
+
+        <button class="nav-button" type="button">Watchlist</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Your next movie night starts here</p>
+            <h1>
+              Find blockbuster hits, cult classics, and all your favorite Fast
+              &amp; Furious action.
+            </h1>
+            <p class="subtitle">
+              Search thousands of movies from the OMDb database and discover
+              titles that match your mood.
+            </p>
+
+            <form
+              class="search-form"
+              id="searchForm"
+              aria-label="Movie search form"
+            >
+              <label class="sr-only" for="searchInput">Search movies</label>
+              <input
+                id="searchInput"
+                type="search"
+                placeholder="Search for movies, franchises, stars..."
+                aria-label="Movie search"
+              />
+              <button type="submit">Search</button>
+            </form>
+
+            <div class="quick-searches" aria-label="Popular searches">
+              <button type="button" class="chip active" data-query="fast">
+                Fast
+              </button>
+              <button type="button" class="chip" data-query="fast and furious">
+                Fast &amp; Furious
+              </button>
+              <button type="button" class="chip" data-query="marvel">
+                Marvel
+              </button>
+              <button type="button" class="chip" data-query="action">
+                Action
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-spotlight" aria-label="Featured movie spotlight">
+            <div class="spotlight-card">
+              <div class="spotlight-badge">Featured</div>
+              <h2>Fast &amp; Furious</h2>
+              <p>
+                High-speed action, family drama, and legendary moments from the
+                franchise.
+              </p>
+              <div class="spotlight-stats">
+                <span>4.8 ★</span>
+                <span>Action</span>
+                <span>2023</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-bar container" aria-label="Site stats">
+        <div>
+          <strong>15k+</strong>
+          <span>movie titles</span>
+        </div>
+        <div>
+          <strong>4.8/5</strong>
+          <span>user rating</span>
+        </div>
+        <div>
+          <strong>24/7</strong>
+          <span>streaming picks</span>
+        </div>
+      </section>
+
+      <section id="discover" class="results-section container">
+        <div id="trending" class="results-header">
+          <div>
+            <p class="section-label">Discover</p>
+            <h2>Movie results</h2>
+          </div>
+          <div class="results-tools">
+            <label for="typeFilter" class="sr-only">Filter by type</label>
+            <select id="typeFilter" aria-label="Filter movies by type">
+              <option value="all">All Types</option>
+              <option value="movie">Movies</option>
+              <option value="series">Series</option>
+              <option value="episode">Episodes</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="result-meta">
+          <span id="resultCount">Loading movies...</span>
+        </div>
+
+        <div
+          id="loadingState"
+          class="loading-state"
+          role="status"
+          aria-live="polite"
+        >
+          <div class="spinner" aria-hidden="true"></div>
+          <span>Loading movies...</span>
+        </div>
+
+        <div id="movieGrid" class="movie-grid" aria-live="polite"></div>
+
+        <div id="emptyState" class="empty-state hidden" aria-live="polite">
+          <h3>No movies found</h3>
+          <p>Try a different movie title or choose another popular search.</p>
+        </div>
+      </section>
+
+      <section id="featured" class="featured-section container">
+        <div class="section-heading">
+          <p class="section-label">Featured picks</p>
+          <h2>Popular action franchises</h2>
+        </div>
+
+        <div class="featured-grid">
+          <article class="feature-card">
+            <span class="feature-tag">Action</span>
+            <h3>Fast &amp; Furious</h3>
+            <p>
+              Street racing, fearless family loyalties, and explosive stunts.
+            </p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-tag">Adventure</span>
+            <h3>Mission Impossible</h3>
+            <p>
+              Impossible missions, daring plans, and spectacular set pieces.
+            </p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-tag">Sci-Fi</span>
+            <h3>Marvel Universe</h3>
+            <p>Heroes, cosmic adventure, and high-energy superhero action.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 CineRush</p>
+        <p>Powered by OMDb API</p>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
